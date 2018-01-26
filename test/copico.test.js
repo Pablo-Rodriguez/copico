@@ -12,7 +12,8 @@ import {
   visual,
   styled,
   logical,
-  props
+  props,
+  styles
 } from '../lib'
 import {_, TestComponent, createPropTest} from './helpers'
 
@@ -185,7 +186,16 @@ test('Wheter is a logical element or not can be configured with decorators', t =
   t.end()
 })
 
-test.skip('Styling through decorators')
+test('Styling through decorators', t => {
+  @styles((self) => `${self.prop}`)
+  class Test {
+    get prop () { return 'styles with prop' }
+  }
+
+  const test = new Test()
+  t.equal(test.styles(), 'styles with prop', 'Styles method defined and correctly called')
+  t.end()
+})
 
 test('Props with default values', t => {
   const Test = createPropTest({
