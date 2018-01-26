@@ -1,3 +1,6 @@
+#custom
+**/*.swp
+
 # Logs
 logs
 *.log
