@@ -1,8 +1,8 @@
 {
   "name": "copico",
   "version": "1.0.1",
-  "description": "Pico web-component helper that uses lit-html for rendering and ES7-decorators.",
-  "main": "lib/index.js",
+  "description": "Pico web-component helper that uses ES7 decorators.",
+  "main": "dist/index.js",
   "repository": "git@github.com:Pablo-Rodriguez/copico.git",
   "author": "Pablo-Rodriguez <pablorp1996@gmail.com>",
   "license": "GPL-3.0",
@@ -14,6 +14,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
     "budo": "^10.0.4",
     "tap-dev-tool": "^1.3.0",
     "tape": "^4.8.0",
@@ -21,6 +22,7 @@
     "uuid": "^3.2.1"
   },
   "scripts": {
-    "test": "budo test/copico.test.js --live -- -t babelify"
+    "test": "budo test/copico.test.js --live -- -t babelify",
+    "compile": "babel -o dist/index.js lib/index.js"
   }
 }
