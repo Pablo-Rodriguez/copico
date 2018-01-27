@@ -46,11 +46,16 @@ module.exports.Component = function (_window$HTMLElement) {
       }
     }
   }, {
+    key: 'parseStyles',
+    value: function parseStyles(styles) {
+      var $styles = document.createElement('style');
+      $styles.innerHTML = styles;
+      return $styles;
+    }
+  }, {
     key: '_render',
     value: function _render() {
-      var styles = document.createElement('style');
-      styles.innerHTML = this.styles() || '';
-      styles = this.styled ? styles : undefined;
+      var styles = this.styled ? this.parseStyles(this.styles()) : undefined;
       var template = this.visual ? this.render() : undefined;
       if (!this.logical) {
         this.engineRender(styles, template, this[symbols.el]);
