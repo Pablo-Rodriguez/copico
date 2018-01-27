@@ -51,11 +51,12 @@ test('Can be configure to render', t => {
   class C extends TestComponent {
     engineRender (styles, template, el) {
       t.ok(el instanceof ShadowRoot, 'The element is an instanceof shadow root (default render)')
-      t.ok(styles instanceof HTMLElement, 'Styles is an HTMLElement')
+      t.equal(styles, 3, 'Styles are parsed in parseStyles')
       t.ok(template instanceof HTMLElement, 'Template is an HTMLElement')
+    }
 
-      el.appendChild(styles)
-      el.appendChild(template)
+    parseStyles (styles) {
+      return 3
     }
   }
 
